@@ -1,0 +1,23 @@
+//props.children처리
+
+import React from 'react'
+
+function Wrapper({children}){
+
+    const style={
+        border:'2px solid black',
+        padding:'16px'
+    }
+
+    return (
+        <>
+        <h1>sasfasf</h1>
+        <div style={style}>
+            {children}
+        </div>
+        </>
+    )
+}
+
+
+export default Wrapper;

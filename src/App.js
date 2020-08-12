@@ -1,12 +1,14 @@
 import React from 'react';
 import Hello from './Hello';
-import logo from './logo.svg';
+import Wrapper from './Wrapper';
 import './App.css';
 
 function App() {
   return (
+    <Wrapper>
     <Hello name="dani" color="red"/>
     <Hello color="blue"/>
+    </Wrapper>
   );
 }
 
