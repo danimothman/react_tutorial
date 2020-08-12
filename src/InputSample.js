@@ -25,7 +25,7 @@ function InputSample(){
             name:'',
             nickname:''
         })
-        nameInput.current.forcus();
+        nameInput.current.focus();
     }
 
     
