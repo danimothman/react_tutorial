@@ -1,5 +1,8 @@
 //props.children처리
 
+//조건부 랜더링
+
+
 import React from 'react'
 
 function Wrapper({children}){
@@ -10,12 +13,11 @@ function Wrapper({children}){
     }
 
     return (
-        <>
-        <h1>sasfasf</h1>
+        // <>
         <div style={style}>
             {children}
         </div>
-        </>
+        // </>
     )
 }
 
