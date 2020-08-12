@@ -1,11 +1,14 @@
 //다중 input 상태 관리 useState 와 onChange
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 
 function InputSample(){
     const [text, setText] = useState({
         name:'',
         nickname:''
     })
+
+    const nameInput = useRef();
+
 
     const {name, nickname} = text
     const onChange=(e)=>{
@@ -22,11 +25,14 @@ function InputSample(){
             name:'',
             nickname:''
         })
+        nameInput.current.forcus();
     }
+
+    
 
     return(
         <div>
-            <input name="name" value={name} onChange={onChange} placeholder={'입력하세요'}/>
+            <input name="name" value={name} onChange={onChange} placeholder={'입력하세요'} ref={nameInput}/>
             <input name="nickname" value={nickname} onChange={onChange} placeholder={'닉네임을 입력하세요'}/>
             <button onClick={onReset}>초기화</button>
             <div>
