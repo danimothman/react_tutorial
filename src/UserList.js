@@ -1,25 +1,26 @@
 //배럴 렌더링 활용
 import React from 'react'
 
-const users = [
-    {
-        id:1,
-        username:"KIM",
-        email:"1@naver.com"
-    },
-    {
-        id:1,
-        username:"SONG",
-        email:"2@naver.com"
-    },
-    {
-        id:1,
-        username:"JAG",
-        email:"3@naver.com"
-    }
-]
+
 
 // function UserList(){
+// const users = [
+//     {
+//         id:1,
+//         username:"KIM",
+//         email:"1@naver.com"
+//     },
+//     {
+//         id:1,
+//         username:"SONG",
+//         email:"2@naver.com"
+//     },
+//     {
+//         id:1,
+//         username:"JAG",
+//         email:"3@naver.com"
+//     }
+// ]
 //     return (
 //         <div>
 //             <div><b>{users[0].username}: </b><span>{users[0].email}</span></div>
@@ -32,17 +33,19 @@ const users = [
 var User = ({user})=>{
     return (
         <div>
-            <b>{user.username}: </b><span>{users.email}</span>
+            <b>{user.username}: </b><span>{user.email}</span>
         </div>
     )
 }
 
-function UserList(){
+function UserList({users}){
+
     return (
         <div>
-            <User user={users[0]} />
-            <User user={users[1]} />
-            <User user={users[2]} />
+            {users.map(user=>(
+                <User user={user} key={user.id} />
+            ))
+            }
         </div>
     )
 }
