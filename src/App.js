@@ -62,9 +62,10 @@ function reducer(state , action){
             }
         
         case "REMOVE_USER":
-            return (
-                dispatch //미완성
-            )
+            return {
+                ...state,
+                users:state.users.filter(user=>user.id !== action.id )
+            }
         default:
             return state;
     }
@@ -109,6 +110,7 @@ function App(){
 
     const  { users } =state
     const {username , email} = state.inputs
+    const count = useMemo(()=> countActiveUsers(users),[users])    
     return (
         <>
         <CreateUser user={username} useremail={email} onChange={onChangeInput} onCreate={onCreate}/>
