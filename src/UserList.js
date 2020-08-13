@@ -29,23 +29,25 @@ import React from 'react'
 //         </div>
 //     )
 // }
-
-var User = ({user})=>{
+//배열 항목 제거
+var User = ({user, Key, onRemove})=>{
     return (
-        <div>
-            <b>{user.username}: </b><span>{user.email}</span>
-        </div>
+            <li Key={user.id}><b>{user.username}: </b><span>{user.email}</span>
+            <button onClick={()=>onRemove(user.id)}>삭제</button>
+            </li>
     )
 }
 
-function UserList({users}){
+function UserList({users, onRemove}){
 
     return (
         <div>
+            <ul>
             {users.map(user=>(
-                <User user={user} key={user.id} />
+                <User user={user} onRemove={onRemove} />
             ))
             }
+            </ul>
         </div>
     )
 }

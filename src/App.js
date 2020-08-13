@@ -5,7 +5,7 @@ import Counter from './Counter'
 import InputSample from './InputSample'
 import UserList from './UserList'
 import CreateUser from './CreateUser'
-import './App.css';
+
 
 
 function App() {
@@ -18,12 +18,12 @@ function App() {
           email:"1@naver.com"
       },
       {
-          id:1,
+          id:2,
           username:"PARK",
           email:"2@naver.com"
       },
       {
-          id:1,
+          id:3,
           username:"SONG",
           email:"3@naver.com"
       }
@@ -60,6 +60,12 @@ function App() {
     })
     nextId.current +=1
   }
+
+  const onRemove = (id)=>{
+    setUsers(users.filter(user=>user.id !== id))
+  }
+
+
   return (
       <>
       <Wrapper>
@@ -69,7 +75,8 @@ function App() {
       <Counter />
       <InputSample />
       <CreateUser user ={username} useremail={email} onChange={onChangeInput}  onCreate={onCreate}/>
-      <UserList  users={users} />
+      <UserList  users={users} onRemove={onRemove}/>
+
       </>
   );
 }
