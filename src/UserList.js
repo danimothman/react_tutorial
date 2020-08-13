@@ -1,5 +1,5 @@
 //배럴 렌더링 활용
-import React from 'react'
+import React,{useEffect} from 'react'
 
 
 
@@ -31,6 +31,14 @@ import React from 'react'
 // }
 //배열 항목 제거
 var User = ({user, onToggle, onRemove})=>{
+    useEffect(()=>{
+        console.log('user값이 나타남')
+        console.log(user)
+        // return ()=>{
+        //     console.log('user값이 바뀌기전')
+        //     console.log(user)
+        // }
+    },[])
     return (
             <li Key={user.id}><b style={{cursor:'pointer',color:user.active ? 'green' : 'blue'}} onClick={()=>onToggle(user.id)}>
             {user.username}: </b>
